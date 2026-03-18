@@ -1,0 +1,761 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Responsible Consumption Hub | Feedback & Program Directory</title>
+  <link rel="stylesheet" href="style.css">
+
+  <style>
+	body{
+	background: #f5f7f4;
+	}
+
+    .page-hero {
+      text-align: center;
+      padding: 2rem 1rem;
+      border-radius: 12px;
+      margin: 1.5rem 0;
+      background: linear-gradient(135deg, rgba(76, 175, 80, 0.12), rgba(255, 248, 225, 0.9));
+    }
+
+    .page-hero h1 {
+      margin-bottom: 0.5rem;
+    }
+
+    .page-hero p {
+      max-width: 850px;
+      margin: 0 auto;
+    }
+	
+	header {
+  background-color: #234b2c;
+  color: white;
+  padding: 1rem 1.5rem;
+}
+
+.site-branding {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+  margin-bottom: 1rem;
+}
+
+.logo-link {
+  display: inline-block;
+}
+
+.site-logo {
+  width: 70px;
+  height: 70px;
+  object-fit: contain;
+  background: white;
+  border-radius: 50%;
+  padding: 0.3rem;
+}
+
+.brand-text h1 {
+  margin: 0;
+  font-size: 1.8rem;
+}
+
+.brand-text p {
+  margin: 0.3rem 0 0;
+}
+
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 0.8rem;
+  flex-wrap: wrap;
+  padding: 0;
+  margin: 0;
+}
+
+.nav-links li {
+  margin: 0;
+}
+
+.nav-links a {
+  display: inline-block;
+  text-decoration: none;
+  color: white;
+  background-color: #2e7d32;
+  padding: 0.6rem 1rem;
+  border-radius: 6px;
+  transition: background-color 0.2s ease, transform 0.2s ease;
+}
+
+.nav-links a:hover,
+.nav-links a:focus {
+  background-color: #3f9b45;
+  transform: translateY(-2px);
+}
+
+.nav-links a.active {
+  background-color: #c8e6c9;
+  color: #1b3a1f;
+  font-weight: bold;
+}
+
+footer {
+  background-color: #1b3a1f;
+  color: white;
+  text-align: center;
+  padding: 1.5rem 1rem;
+  margin-top: 2rem;
+}
+
+.footer-content p {
+  margin: 0.5rem 0;
+}
+
+footer a {
+  color: #d7f5d8;
+  text-decoration: none;
+}
+
+footer a:hover,
+footer a:focus {
+  text-decoration: underline;
+}
+
+    .section-title {
+      margin: 2rem 0 1rem;
+      border-left: 5px solid #4caf50;
+      padding-left: 0.8rem;
+    }
+
+    .filter-bar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 1rem;
+      flex-wrap: wrap;
+      margin-bottom: 1rem;
+    }
+
+    .filter-bar label {
+      font-weight: bold;
+    }
+
+    .filter-bar select {
+      padding: 0.6rem;
+      border-radius: 6px;
+      border: 1px solid #bbb;
+    }
+
+    .program-scroll {
+      display: flex;
+      gap: 1rem;
+      overflow-x: auto;
+      padding-bottom: 1rem;
+      scroll-behavior: smooth;
+    }
+
+    .program-card {
+      min-width: 280px;
+      max-width: 280px;
+      background: #ffffff;
+      border: 1px solid #d8e6d2;
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+      flex-shrink: 0;
+    }
+
+    .program-card img {
+      width: 100%;
+      height: 180px;
+      object-fit: cover;
+      display: block;
+    }
+
+    .program-card-content {
+      padding: 1rem;
+    }
+
+    .program-card h3 {
+      margin-top: 0;
+      margin-bottom: 0.5rem;
+    }
+
+    .program-card p {
+      margin-bottom: 1rem;
+    }
+
+    .program-card button {
+      background-color: #2e7d32;
+      color: white;
+      border: none;
+      padding: 0.7rem 1rem;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: transform 0.2s ease, opacity 0.2s ease;
+    }
+
+    .program-card button:hover,
+    .program-card button:focus {
+      transform: translateY(-2px);
+      opacity: 0.92;
+    }
+
+.reviews-section {
+  margin-top: 2rem;
+}
+
+
+.reviews-container {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  gap: 1.5rem;
+}
+
+
+.rating-summary {
+  background: linear-gradient(135deg, #e8f5e9, #ffffff);
+  border-radius: 15px;
+  padding: 1.5rem;
+  text-align: center;
+  box-shadow: 0 6px 15px rgba(0,0,0,0.08);
+}
+
+.rating-summary h3 {
+  font-size: 3rem;
+  margin: 0;
+  color: #2e7d32;
+}
+
+.rating-label {
+  font-weight: bold;
+  margin: 0.5rem 0;
+}
+
+.total-reviews {
+  font-size: 0.9rem;
+  color: #555;
+}
+
+
+.stars {
+  color: #ffb400;
+  font-size: 1.4rem;
+  margin: 0.3rem 0;
+}
+
+.stars.small {
+  font-size: 1rem;
+}
+
+
+.reviews-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.review-card {
+  background: #ffffff;
+  border-left: 5px solid #4caf50;
+  padding: 1rem;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.06);
+  transition: transform 0.2s ease;
+}
+
+.review-card:hover {
+  transform: translateY(-3px);
+}
+
+.review-card h4 {
+  margin: 0 0 0.3rem;
+}
+
+.review-card p {
+  margin: 0.4rem 0;
+}
+
+.review-meta {
+  font-size: 0.85rem;
+  color: #666;
+}
+
+
+@media (max-width: 800px) {
+  .reviews-container {
+    grid-template-columns: 1fr;
+  }
+}
+    .form-layout {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1rem;
+    }
+
+    .full-width {
+      grid-column: 1 / -1;
+    }
+
+    fieldset {
+      border: 1px solid #c8d8c1;
+      border-radius: 10px;
+      margin-bottom: 1rem;
+      padding: 1rem;
+    }
+
+    legend {
+      font-weight: bold;
+      padding: 0 0.4rem;
+    }
+
+    label {
+      display: block;
+      margin-bottom: 0.35rem;
+      font-weight: 600;
+    }
+
+    input,
+    textarea,
+    select {
+      width: 100%;
+      padding: 0.7rem;
+      border: 1px solid #bdbdbd;
+      border-radius: 6px;
+      box-sizing: border-box;
+      font: inherit;
+    }
+
+    textarea {
+      min-height: 140px;
+      resize: vertical;
+    }
+
+    .char-counter {
+      font-size: 0.9rem;
+      margin-top: 0.35rem;
+      color: #555;
+    }
+
+    .error-message {
+      color: #b00020;
+      font-size: 0.9rem;
+      margin-top: 0.3rem;
+    }
+
+    .input-error {
+      border: 2px solid #b00020;
+      background-color: #fff5f5;
+    }
+
+    .success-message {
+      margin-top: 1rem;
+      padding: 0.9rem;
+      border-radius: 8px;
+      background: #e8f5e9;
+      color: #1b5e20;
+      font-weight: bold;
+      display: none;
+    }
+	.submit-btn {
+  background: linear-gradient(135deg, #2e7d32, #4caf50);
+  color: white;
+  border: none;
+  padding: 0.9rem 1.5rem;
+  font-size: 1rem;
+  font-weight: bold;
+  border-radius: 30px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  display: block;
+  margin-top: 1rem;
+}
+
+.submit-btn:hover {
+  transform: translateY(-2px) scale(1.03);
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.2);
+  background: linear-gradient(135deg, #1b5e20, #43a047);
+}
+
+.submit-btn:active {
+  transform: scale(0.97);
+}
+
+    @media (max-width: 900px) {
+      .reviews-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .form-layout {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body id="top">
+  <header>
+  <div class="site-branding">
+    <a href="home.html" class="logo-link">
+      <img src="images/logo.png" alt="Responsible Consumption Hub logo" class="site-logo">
+    </a>
+
+    <div class="brand-text">
+      <h1 style="color : #27F52E;">Responsible Consumption Hub</h1>
+      <p>Supporting SDG 12 through smarter everyday choices</p>
+    </div>
+  </div>
+
+  <nav aria-label="Main navigation">
+    <ul class="nav-links">
+      <li><a href="home.html">Home</a></li>
+      <li><a href="gallery.html">Gallery</a></li>
+      <li><a href="ais.html">Action Impact Simulator</a></li>
+      <li><a href="feedback.html" class="active">Feedback</a></li>
+      <li><a href="team.html">Team</a></li>
+      <li><a href="profile.html">User Profile</a></li>
+      <li><a href="sitemap.html">Sitemap</a></li>
+    </ul>
+  </nav>
+</header>
+
+  <main>
+    <section class="page-hero">
+      <h1>Feedback & Program Directory</h1>
+      <p>
+        Explore student-friendly ways to support responsible consumption. From reducing food waste
+        to buying second-hand and reusing everyday items, these programmes promote practical action
+        linked to SDG 12.
+      </p>
+    </section>
+
+    <section aria-labelledby="programmes-heading">
+      <h2 id="programmes-heading" class="section-title">Student Programmes and Opportunities</h2>
+
+      <div class="filter-bar">
+        <p>Browse practical actions that help students consume more responsibly.</p>
+        <div>
+          <label for="sort-programmes">Sort by:</label>
+          <select id="sort-programmes" name="sort-programmes">
+            <option>Most Popular</option>
+            <option>Student-Friendly</option>
+            <option>Low Cost</option>
+            <option>Nearest</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="program-scroll">
+        <article class="program-card">
+          <img src="images\isometric-drinking-water-filling-station-260nw-2383217745.webp" alt="Reusable bottle beside a campus refill station">
+          <div class="program-card-content">
+            <h3>Campus Refill Scheme</h3>
+            <p>Use refill stations for water and hot drinks to reduce single-use plastic on campus.</p>
+            <button type="button">Learn More</button>
+          </div>
+        </article>
+
+        <article class="program-card">
+          <img src="images\swap part.webp".jpg" alt="Students exchanging second-hand clothes at a swap event">
+          <div class="program-card-content">
+            <h3>Clothes Swap Event</h3>
+            <p>Swap good-quality clothes instead of buying fast fashion and extend product life.</p>
+            <button type="button">Join Now</button>
+          </div>
+        </article>
+
+        <article class="program-card">
+          <img src="images\leftover.jfif" alt="Containers with leftover meals prepared for reuse">
+          <div class="program-card-content">
+            <h3>Food Waste Challenge</h3>
+            <p>Track leftovers, plan meals, and learn ways to waste less food in student life.</p>
+            <button type="button">Get Involved</button>
+          </div>
+        </article>
+
+        <article class="program-card">
+          <img src="images\students-working-on-sustainable-ideas.webp" alt="A person repairing a small household item at a workshop">
+          <div class="program-card-content">
+            <h3>Repair & Reuse Workshop</h3>
+            <p>Learn simple repair skills so damaged items can be fixed rather than thrown away.</p>
+            <button type="button">Try This Action</button>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section class="reviews-section">
+  <h2 class="section-title">Ratings and Reviews</h2>
+
+  <div class="reviews-container">
+
+    
+    <div class="rating-summary">
+      <h3>8.8</h3>
+      <p class="rating-label">Excellent</p>
+      <div class="stars">★★★★★</div>
+      <p class="total-reviews">Based on 124 student reviews</p>
+    </div>
+
+    
+    <div class="reviews-list">
+
+      <div class="review-card">
+        <h4>Easy way to cut waste</h4>
+        <div class="stars small">★★★★☆</div>
+        <p>The refill station idea was simple and realistic for student life.</p>
+        <span class="review-meta">Aisha | 9/10</span>
+      </div>
+
+      <div class="review-card">
+        <h4>Saved money too</h4>
+        <div class="stars small">★★★★☆</div>
+        <p>The clothes swap helped me avoid buying new clothes every month.</p>
+        <span class="review-meta">Daniel | 8/10</span>
+      </div>
+
+      <div class="review-card">
+        <h4>Made me rethink buying</h4>
+        <div class="stars small">★★★★★</div>
+        <p>I now think before I buy things I don’t actually need.</p>
+        <span class="review-meta">Sara | 9/10</span>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+        <div class="review-list">
+          <article class="review-card">
+            <h3>Easy way to cut waste</h3>
+            <p>
+              The refill station idea was simple, realistic, and easy to follow during a busy week.
+              <a href="#">See more</a>
+            </p>
+            <p class="review-meta">Aisha Khan | 12 March 2026 | Rating: 9/10</p>
+          </article>
+
+          <article class="review-card">
+            <h3>Saved money as well</h3>
+            <p>
+              The clothes swap event showed me that responsible consumption can also be budget-friendly.
+              <a href="#">See more</a>
+            </p>
+            <p class="review-meta">Daniel Smith | 18 March 2026 | Rating: 8/10</p>
+          </article>
+
+          <article class="review-card">
+            <h3>Made me think before buying</h3>
+            <p>
+              I started checking whether I really needed new items after reading the programme ideas.
+              <a href="#">See more</a>
+            </p>
+            <p class="review-meta">Sara Ahmed | 20 March 2026 | Rating: 9/10</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section aria-labelledby="feedback-form-heading" class="feedback-form-container">
+      <h2 id="feedback-form-heading" class="section-title">Share Your Feedback</h2>
+      <p>
+        Tell us what responsible consumption action matters most to you and how students can reduce waste.
+      </p>
+
+      <form id="feedbackForm" novalidate>
+        <fieldset>
+          <legend>Personal Details</legend>
+
+          <div class="form-layout">
+            <div>
+              <label for="fullName">Full Name</label>
+              <input type="text" id="fullName" name="fullName" required>
+              <div class="error-message" id="nameError"></div>
+            </div>
+
+            <div>
+              <label for="email">Email Address</label>
+              <input type="email" id="email" name="email" required>
+              <div class="error-message" id="emailError"></div>
+            </div>
+
+            <div>
+              <label for="phone">Telephone Number</label>
+              <input type="tel" id="phone" name="phone" required>
+              <div class="error-message" id="phoneError"></div>
+            </div>
+
+            <div>
+              <label for="actionType">Action Area</label>
+              <select id="actionType" name="actionType" required>
+                <option value="">Choose one option</option>
+                <option value="food">Reducing Food Waste</option>
+                <option value="reuse">Reusing Products</option>
+                <option value="secondhand">Buying Second-Hand</option>
+                <option value="plastic">Reducing Plastic Use</option>
+                <option value="ethical">Ethical Shopping</option>
+              </select>
+              <div class="error-message" id="actionError"></div>
+            </div>
+
+            <div class="full-width">
+              <label for="address">Address</label>
+              <textarea id="address" name="address" required></textarea>
+              <div class="error-message" id="addressError"></div>
+            </div>
+          </div>
+        </fieldset>
+
+        <fieldset>
+          <legend>Feedback Details</legend>
+
+          <div class="form-layout">
+            <div>
+              <label for="visitDate">Preferred Event Date</label>
+              <input type="date" id="visitDate" name="visitDate" required>
+              <div class="error-message" id="dateError"></div>
+            </div>
+
+            <div>
+              <label for="contactTime">Preferred Contact Time</label>
+              <input type="datetime-local" id="contactTime" name="contactTime" required>
+              <div class="error-message" id="datetimeError"></div>
+            </div>
+
+            <div class="full-width">
+              <label for="message">Comment / Message</label>
+              <textarea id="message" name="message" maxlength="250" required></textarea>
+              <p class="char-counter">Characters remaining: <span id="charCount">250</span></p>
+              <div class="error-message" id="messageError"></div>
+            </div>
+          </div>
+        </fieldset>
+
+        <button type="submit" class="submit-btn">
+		Send Feedback
+		</button>
+        <div class="success-message" id="successMessage">
+          Thank you for your feedback! Every responsible choice helps support SDG 12.
+        </div>
+      </form>
+    </section>
+  </main>
+
+<footer>
+  <div class="footer-content">
+    <p><strong>Responsible Consumption Hub</strong></p>
+    <p>
+      Encouraging students to reduce waste, reuse more, and make responsible choices.
+    </p>
+
+    <p>
+      <a href="pageEditor_ST3.html">Page Editor</a> |
+      <a href="validation_ST3.html">Validation Page</a> |
+      <a href="#">Accessibility</a>
+    </p>
+
+    <p> &copy; Student 3 | Web Design and Development Coursework</p>
+  </div>
+</footer>
+
+  <script>
+    const form = document.getElementById("feedbackForm");
+    const messageBox = document.getElementById("message");
+    const charCount = document.getElementById("charCount");
+    const successMessage = document.getElementById("successMessage");
+
+    const fields = [
+      {
+        input: document.getElementById("fullName"),
+        error: document.getElementById("nameError"),
+        message: "Please enter your full name."
+      },
+      {
+        input: document.getElementById("email"),
+        error: document.getElementById("emailError"),
+        message: "Please enter a valid email address."
+      },
+      {
+        input: document.getElementById("phone"),
+        error: document.getElementById("phoneError"),
+        message: "Please enter your telephone number."
+      },
+      {
+        input: document.getElementById("actionType"),
+        error: document.getElementById("actionError"),
+        message: "Please choose one action area."
+      },
+      {
+        input: document.getElementById("address"),
+        error: document.getElementById("addressError"),
+        message: "Please enter your address."
+      },
+      {
+        input: document.getElementById("visitDate"),
+        error: document.getElementById("dateError"),
+        message: "Please choose a date."
+      },
+      {
+        input: document.getElementById("contactTime"),
+        error: document.getElementById("datetimeError"),
+        message: "Please choose a preferred contact time."
+      },
+      {
+        input: document.getElementById("message"),
+        error: document.getElementById("messageError"),
+        message: "Please enter a message about responsible consumption."
+      }
+    ];
+
+    function updateCharacterCount() {
+      const remaining = messageBox.maxLength - messageBox.value.length;
+      charCount.textContent = remaining;
+    }
+
+    function showError(input, errorElement, message) {
+      input.classList.add("input-error");
+      errorElement.textContent = message;
+    }
+
+    function clearError(input, errorElement) {
+      input.classList.remove("input-error");
+      errorElement.textContent = "";
+    }
+
+    function isEmailValid(email) {
+      return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+    }
+
+    messageBox.addEventListener("input", updateCharacterCount);
+
+    form.addEventListener("submit", function (event) {
+      event.preventDefault();
+      let formIsValid = true;
+      successMessage.style.display = "none";
+
+      fields.forEach(function (field) {
+        clearError(field.input, field.error);
+
+        if (field.input.value.trim() === "") {
+          showError(field.input, field.error, field.message);
+          formIsValid = false;
+        }
+      });
+
+      const emailInput = document.getElementById("email");
+      if (emailInput.value.trim() !== "" && !isEmailValid(emailInput.value.trim())) {
+        showError(emailInput, document.getElementById("emailError"), "Please enter a valid email format.");
+        formIsValid = false;
+      }
+
+      if (formIsValid) {
+        successMessage.style.display = "block";
+        form.reset();
+        updateCharacterCount();
+      }
+    });
+
+    updateCharacterCount();
+  </script>
+</body>
+</html>
